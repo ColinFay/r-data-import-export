@@ -1,3 +1,7 @@
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "Get Started" at https://bookdown.org/ for how to compile this example.
+# R Data Import/Export
 
-You can find the preview of this example at https://bookdown.org/yihui/bookdown-demo/
+This is a bookdown adaptation of the html version of the R manuals. 
+
+Notes: I do not own any of the content written here. This is just a scraping and html munging exercice \o/
+
+[https://cran.r-project.org/manuals.html](https://cran.r-project.org/manuals.html)
