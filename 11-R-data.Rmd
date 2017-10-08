@@ -1,0 +1,18 @@
+#  Network interfaces
+<p>Some limited facilities are available to exchange data at a lower level across network connections.</p>
+<hr />
+<p><a href="" id="Reading-from-sockets"></a> <a href="" id="Reading-from-sockets-1"></a></p>
+<h3 id="reading-from-sockets" class="section">8.1 Reading from sockets</h3>
+<p><a href="" id="index-Sockets-1"></a></p>
+<p>Base R comes with some facilities to communicate <em>via</em> BSD sockets on systems that support them (including the common Linux, Unix and Windows ports of R). One potential problem with using sockets is that these facilities are often blocked for security reasons or to force the use of Web caches, so these functions may be more useful on an intranet than externally. For new projects it is suggested that socket connections are used instead.</p>
+<p><a href="" id="index-make_002esocket"></a> <a href="" id="index-read_002esocket"></a> <a href="" id="index-write_002esocket"></a> <a href="" id="index-close_002esocket"></a></p>
+<p>The earlier low-level interface is given by functions <code class="calibre2">make.socket</code>, <code class="calibre2">read.socket</code>, <code class="calibre2">write.socket</code> and <code class="calibre2">close.socket</code>.</p>
+<hr />
+<p><a href="" id="Using-download_002efile"></a> <a href="" id="Using-download_002efile-1"></a></p>
+<h3 id="using-download.file" class="section">8.2 Using <code class="calibre15">download.file</code></h3>
+<p>Function <code class="calibre2">download.file</code> is provided to read a file from a Web resource via FTP or HTTP (including HTTPS) and write it to a file. Often this can be avoided, as functions such as <code class="calibre2">read.table</code> and <code class="calibre2">scan</code> can read directly from a URL, either by explicitly using <code class="calibre2">url</code> to open a connection, or implicitly using it by giving a URL as the <code class="calibre2">file</code> argument.</p>
+<hr />
+<p><a href="" id="Reading-Excel-spreadsheets"></a> <a href="" id="Reading-Excel-spreadsheets-1"></a></p>
+<div id="calibre_pb_20" class="calibre11">
+
+</div>

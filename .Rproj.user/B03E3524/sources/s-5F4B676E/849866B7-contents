@@ -1,0 +1,4 @@
+replace_w_df <- function(patterns, replacements, string){
+  map2(patterns, replacements, ~gsub(.x, .y, string))
+}
+
