@@ -83,53 +83,22 @@ file.remove(c("00-R-data.Rmd","01-R-data.Rmd", "02-R-data.Rmd", "03-R-data.Rmd")
 clean_url <- function(file){
   a <- readLines( file )
   
-  a %<>% str_replace_all("004-R-data.html", "dataduction-and-preliminaries.html") %>%
-    str_replace_all("005-R-data.html", "simple-manipulations-numbers-and-vectors.html") %>%
-    str_replace_all("006-R-data.html", "objects-their-modes-and-attributes.html") %>%
-    str_replace_all("007-R-data.html", "ordered-and-unordered-factors.html") %>%
-    str_replace_all("008-R-data.html", "arrays-and-matrices.html") %>%
-    str_replace_all("009-R-data.html", "lists-and-data-frames.html") %>%
-    str_replace_all("010-R-data.html", "reading-data-from-files.html") %>%
-    str_replace_all("011-R-data.html", "probability-distributions.html") %>%
-    str_replace_all("012-R-data.html", "grouping-loops-and-conditional-execution.html") %>%
-    str_replace_all("013-R-data.html", "writing-your-own-functions.html") %>%
-    str_replace_all("014-R-data.html", "statistical-models-in-r.html") %>%
-    str_replace_all("015-R-data.html", "graphical-procedures.html")  
+  a %<>% str_replace_all("004-R-data.html", "introduction.html") %>%
+    str_replace_all("005-R-data.html", "spreadsheet-like-data.html") %>%
+    str_replace_all("006-R-data.html", "importing-from-other-statistical-systems.html") %>%
+    str_replace_all("007-R-data.html", "relational-databases.html") %>%
+    str_replace_all("008-R-data.html", "binary-files.html") %>%
+    str_replace_all("009-R-data.html", "image-files.html") %>%
+    str_replace_all("010-R-data.html", "connections.html") %>%
+    str_replace_all("011-R-data.html", "network-interfaces.html") %>%
+    str_replace_all("012-R-data.html", "reading-excel-spreadsheets.html") %>%
+    str_replace_all("013-R-data.html", "appendix-a-references.html") %>%
+    str_replace_all("014-R-data.html", "function-and-variable-index.html") %>%
+    str_replace_all("015-R-data.html", "concept-index.html")  
   write(a, file = file)
 }
 
 purrr::walk(list.files(pattern = "Rmd"), clean_url)
-
-# Check for broken links
-library(rvest)
-
-all_links_page <- function(url){
-  link <- read_html(url) %>%
-    html_nodes("a") %>%
-    html_attr("href") 
-  
-  data.frame(base = url, 
-             url = link)
-}
-
-home <- all_links_page("http://colinfay.me/data-to-r/")
-
-complete_url <- function(url, canonical){
-  if(grepl("^http", url) != 0){
-    as.character(url)
-  } else {
-    paste0(canonical, url)
-  }
-}
-
-home$url %<>% map(complete_url, canonical = "http://colinfay.me/data-to-r/")
-
-all_link_website <- map_df(home$url, all_links_page)
-all_link_website$url %<>% map(complete_url, canonical = "http://colinfay.me/data-to-r/")
-all_link_website$res <- map(all_link_website$url, ~httr::status_code(httr::GET(.x)))
-
-fourofour <- filter(all_link_website, res != 200)[grepl("colin", fourofour$base), ]
-
 # Do some manual work here
 
 # Build \o/

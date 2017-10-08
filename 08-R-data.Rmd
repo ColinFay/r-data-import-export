@@ -1,6 +1,6 @@
 #  Binary files
 <p><a href="" id="index-Binary-files"></a></p>
-<p>Binary connections (<a href="image-files.html#Connections">Connections</a>) are now the preferred way to handle binary files.</p>
+<p>Binary connections (<a href="connections.html">Connections</a>) are now the preferred way to handle binary files.</p>
 <hr />
 <p><a href="" id="Binary-data-formats"></a> <a href="" id="Binary-data-formats-1"></a></p>
 <h3 id="binary-data-formats" class="section">5.1 Binary data formats</h3>
