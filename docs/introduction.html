@@ -25,7 +25,7 @@
 <meta name="author" content="R Development Core Team">
 
 
-<meta name="date" content="2017-10-08">
+<meta name="date" content="2017-10-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -138,16 +138,16 @@ This manual was first written in 2000, and the number of scope of R packages has
 <a href="" id="index-scan"></a>
 </p>
 <p>
-The easiest form of data to import into R is a simple text file, and this will often be acceptable for problems of small or medium scale. The primary function to import from a text file is <code class="calibre2">scan</code>, and this underlies most of the more convenient functions discussed in <a href="introduction.html#Spreadsheet_002dlike-data">Spreadsheet-like data</a>.
+The easiest form of data to import into R is a simple text file, and this will often be acceptable for problems of small or medium scale. The primary function to import from a text file is <code class="calibre2">scan</code>, and this underlies most of the more convenient functions discussed in <a href="spreadsheet-like-data.html">Spreadsheet-like data</a>.
 </p>
 <p>
-However, all statistical consultants are familiar with being presented by a client with a memory stick (formerly, a floppy disc or CD-R) of data in some proprietary binary format, for example ‘an Excel spreadsheet’ or ‘an SPSS file’. Often the simplest thing to do is to use the originating application to export the data as a text file (and statistical consultants will have copies of the most common applications on their computers for that purpose). However, this is not always possible, and <a href="spreadsheet-like-data.html#Importing-from-other-statistical-systems">Importing from other statistical systems</a> discusses what facilities are available to access such files directly from R. For Excel spreadsheets, the available methods are summarized in <a href="network-interfaces.html#Reading-Excel-spreadsheets">Reading Excel spreadsheets</a>.
+However, all statistical consultants are familiar with being presented by a client with a memory stick (formerly, a floppy disc or CD-R) of data in some proprietary binary format, for example ‘an Excel spreadsheet’ or ‘an SPSS file’. Often the simplest thing to do is to use the originating application to export the data as a text file (and statistical consultants will have copies of the most common applications on their computers for that purpose). However, this is not always possible, and <a href="importing-from-other-statistical-systems.html">Importing from other statistical systems</a> discusses what facilities are available to access such files directly from R. For Excel spreadsheets, the available methods are summarized in <a href="reading-Excel-spreadsheets.thml">Reading Excel spreadsheets</a>.
 </p>
 <p>
-In a few cases, data have been stored in a binary form for compactness and speed of access. One application of this that we have seen several times is imaging data, which is normally stored as a stream of bytes as represented in memory, possibly preceded by a header. Such data formats are discussed in <a href="relational-databases.html#Binary-files">Binary files</a> and <a href="connections.html#Binary-connections">Binary connections</a>.
+In a few cases, data have been stored in a binary form for compactness and speed of access. One application of this that we have seen several times is imaging data, which is normally stored as a stream of bytes as represented in memory, possibly preceded by a header. Such data formats are discussed in <a href="binary-files.html">Binary files</a> and <a href="connections.html#Binary-connections">Binary connections</a>.
 </p>
 <p>
-For much larger databases it is common to handle the data using a database management system (DBMS). There is once again the option of using the DBMS to extract a plain file, but for many such DBMSs the extraction operation can be done directly from an R package: See <a href="importing-from-other-statistical-systems.html#Relational-databases">Relational databases</a>. Importing data via network connections is discussed in <a href="connections.html#Network-interfaces">Network interfaces</a>.
+For much larger databases it is common to handle the data using a database management system (DBMS). There is once again the option of using the DBMS to extract a plain file, but for many such DBMSs the extraction operation can be done directly from an R package: See <a href="relational-databases.html">Relational databases</a>. Importing data via network connections is discussed in <a href="network-interfaces.html">Network interfaces</a>.
 </p>
 <hr />
 <p>
@@ -190,7 +190,7 @@ Note that <code class="calibre2">utf8</code> is not a valid encoding name (<code
 <a href="" id="index-Exporting-to-a-text-file"></a>
 </p>
 <p>
-Exporting results from R is usually a less contentious task, but there are still a number of pitfalls. There will be a target application in mind, and often a text file will be the most convenient interchange vehicle. (If a binary file is required, see <a href="relational-databases.html#Binary-files">Binary files</a>.)
+Exporting results from R is usually a less contentious task, but there are still a number of pitfalls. There will be a target application in mind, and often a text file will be the most convenient interchange vehicle. (If a binary file is required, see <a href="binary-files.html">Binary files</a>.)
 </p>
 <p>
 <a href="" id="index-cat"></a>
@@ -237,10 +237,10 @@ Some other systems require a (possibly empty) entry for the row names, which is 
 <strong>Separator</strong> <a href="" id="index-CSV-files"></a> <a href="" id="index-comma-separated-values"></a> <a href="" id="index-write_002ecsv"></a> <a href="" id="index-write_002ecsv2"></a>
 </p>
 <p>
-A common field separator to use in the file is a comma, as that is unlikely to appear in any of the fields in English-speaking countries. Such files are known as CSV (comma separated values) files, and wrapper function <code class="calibre2">write.csv</code> provides appropriate defaults. In some locales the comma is used as the decimal point (set this in <code class="calibre2">write.table</code> by <code class="calibre2">dec = “,”</code>) and there CSV files use the semicolon as the field separator: use <code class="calibre2">write.csv2</code> for appropriate defaults. There is an IETF standard for CSV files (which mandates commas and CRLF line endings, for which use <code class="calibre2">eol = “”</code>), RFC4180 (see <a href="https://tools.ietf.org/html/rfc4180" class="uri">https://tools.ietf.org/html/rfc4180</a>), but what is more important in practice is that the file is readable by the application it is targeted at.
+A common field separator to use in the file is a comma, as that is unlikely to appear in any of the fields in English-speaking countries. Such files are known as CSV (comma separated values) files, and wrapper function <code class="calibre2">write.csv</code> provides appropriate defaults. In some locales the comma is used as the decimal point (set this in <code class="calibre2">write.table</code> by <code class="calibre2">dec = “,”</code>) and there CSV files use the semicolon as the field separator: use <code class="calibre2">write.csv2</code> for appropriate defaults. There is an IETF standard for CSV files (which mandates commas and CRLF line endings, for which use <code class="calibre2">eol = “\r\n”</code>), RFC4180 (see <a href="https://tools.ietf.org/html/rfc4180" class="uri">https://tools.ietf.org/html/rfc4180</a>), but what is more important in practice is that the file is readable by the application it is targeted at.
 </p>
 <p>
-Using a semicolon or tab (<code class="calibre2">sep = “”</code>) are probably the safest options.
+Using a semicolon or tab (<code class="calibre2">sep = “\t”</code>) are probably the safest options.
 </p>
 </li>
 <li>
@@ -262,10 +262,10 @@ By default strings are quoted (including the row and column names). Argument <co
 Some care is needed if the strings contain embedded quotes. Three useful forms are
 </p>
 <div class="example">
-<pre class="example1"><code>&gt; df &lt;- data.frame(a = I(&quot;a \&quot; quote&quot;))
+<pre class="example1"><code>&gt; df &lt;- data.frame(a = I(&quot;a &#92;&quot; quote&quot;))
 &gt; write.table(df)
 &quot;a&quot;
-&quot;1&quot; &quot;a \&quot; quote&quot;
+&quot;1&quot; &quot;a &#92;&quot; quote&quot;
 &gt; write.table(df, qmethod = &quot;double&quot;)
 &quot;a&quot;
 &quot;1&quot; &quot;a &quot;&quot; quote&quot;

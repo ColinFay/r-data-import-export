@@ -203,10 +203,10 @@ Alaska           10.0     263       48 44.5
 ## list the spreadsheets
 &gt; sqlTables(channel)
   TABLE_CAT TABLE_SCHEM        TABLE_NAME   TABLE_TYPE REMARKS
-1 C:\\bdr            NA           Sheet1$ SYSTEM TABLE      NA
-2 C:\\bdr            NA           Sheet2$ SYSTEM TABLE      NA
-3 C:\\bdr            NA           Sheet3$ SYSTEM TABLE      NA
-4 C:\\bdr            NA Sheet1$Print_Area        TABLE      NA
+1 C:&#92;&#92;bdr            NA           Sheet1$ SYSTEM TABLE      NA
+2 C:&#92;&#92;bdr            NA           Sheet2$ SYSTEM TABLE      NA
+3 C:&#92;&#92;bdr            NA           Sheet3$ SYSTEM TABLE      NA
+4 C:&#92;&#92;bdr            NA Sheet1$Print_Area        TABLE      NA
 ## retrieve the contents of sheet 1, by either of
 &gt; sh1 &lt;- sqlFetch(channel, &quot;Sheet1&quot;)
 &gt; sh1 &lt;- sqlQuery(channel, &quot;select * from [Sheet1$]&quot;)</code></pre>
@@ -217,3 +217,4 @@ Alaska           10.0     263       48 44.5
 <div id="calibre_pb_12" class="calibre11">
 
 </div>
+

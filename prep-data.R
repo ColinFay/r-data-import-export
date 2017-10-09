@@ -99,7 +99,15 @@ clean_url <- function(file){
 }
 
 purrr::walk(list.files(pattern = "Rmd"), clean_url)
-# Do some manual work here
+
+replace_in_file <- function(file, pattern, replacement){
+  a <- read_file(file) 
+  a <- str_replace_all(a, pattern, replacement)
+  write(a, file)
+}
+
+purrr::map(list.files(pattern = "Rmd"), replace_in_file,  pattern = "\\\\", replacement = "&#92;")
+
 
 # Build \o/
 

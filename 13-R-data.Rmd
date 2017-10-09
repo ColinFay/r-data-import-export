@@ -11,3 +11,4 @@
 <p>E. J. Yarger, G. Reese and T. King (1999) <em>MySQL &amp; mSQL</em>. O’Reilly.</p>
 <hr />
 <p><a href="" id="Function-and-variable-index"></a> <a href="" id="Function-and-variable-index-1"></a></p>
+

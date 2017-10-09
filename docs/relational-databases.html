@@ -25,7 +25,7 @@
 <meta name="author" content="R Development Core Team">
 
 
-<meta name="date" content="2017-10-08">
+<meta name="date" content="2017-10-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -512,10 +512,10 @@ As a simple example of using ODBC under Windows with a Excel spreadsheet, we can
 ## list the spreadsheets
 &gt; sqlTables(channel)
   TABLE_CAT TABLE_SCHEM        TABLE_NAME   TABLE_TYPE REMARKS
-1 C:\\bdr            NA           Sheet1$ SYSTEM TABLE      NA
-2 C:\\bdr            NA           Sheet2$ SYSTEM TABLE      NA
-3 C:\\bdr            NA           Sheet3$ SYSTEM TABLE      NA
-4 C:\\bdr            NA Sheet1$Print_Area        TABLE      NA
+1 C:&#92;&#92;bdr            NA           Sheet1$ SYSTEM TABLE      NA
+2 C:&#92;&#92;bdr            NA           Sheet2$ SYSTEM TABLE      NA
+3 C:&#92;&#92;bdr            NA           Sheet3$ SYSTEM TABLE      NA
+4 C:&#92;&#92;bdr            NA Sheet1$Print_Area        TABLE      NA
 ## retrieve the contents of sheet 1, by either of
 &gt; sh1 &lt;- sqlFetch(channel, &quot;Sheet1&quot;)
 &gt; sh1 &lt;- sqlQuery(channel, &quot;select * from [Sheet1$]&quot;)</code></pre>

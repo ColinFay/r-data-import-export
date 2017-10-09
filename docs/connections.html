@@ -25,7 +25,7 @@
 <meta name="author" content="R Development Core Team">
 
 
-<meta name="date" content="2017-10-08">
+<meta name="date" content="2017-10-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -198,14 +198,14 @@ Some simple examples are
 <div class="example">
 <pre class="example1"><code>zz &lt;- file(&quot;ex.data&quot;, &quot;w&quot;)  # open an output file connection
 cat(&quot;TITLE extra line&quot;, &quot;2 3 5 7&quot;, &quot;&quot;, &quot;11 13 17&quot;, 
-    file = zz, sep = &quot;\n&quot;)
-cat(&quot;One more line\n&quot;, file = zz)
+    file = zz, sep = &quot;&#92;n&quot;)
+cat(&quot;One more line&#92;n&quot;, file = zz)
 close(zz)
 
 ## convert decimal point to comma in output, using a pipe (Unix)
-## both R strings and (probably) the shell need \ doubled
-zz &lt;- pipe(paste(&quot;sed s/\\\\./,/ &gt;&quot;, &quot;outfile&quot;), &quot;w&quot;)
-cat(format(round(rnorm(100), 4)), sep = &quot;\n&quot;, file = zz)
+## both R strings and (probably) the shell need &#92; doubled
+zz &lt;- pipe(paste(&quot;sed s/&#92;&#92;&#92;&#92;./,/ &gt;&quot;, &quot;outfile&quot;), &quot;w&quot;)
+cat(format(round(rnorm(100), 4)), sep = &quot;&#92;n&quot;, file = zz)
 close(zz)
 ## now look at the output file:
 file.show(&quot;outfile&quot;, delete.file = TRUE)
@@ -218,7 +218,7 @@ sink()
 close(zz)
 ## now ‘ex.lm.out’ contains the output for futher processing.
 ## Look at it by, e.g.,
-cat(ex.lm.out, sep = &quot;\n&quot;)</code></pre>
+cat(ex.lm.out, sep = &quot;&#92;n&quot;)</code></pre>
 </div>
 <hr />
 <p>

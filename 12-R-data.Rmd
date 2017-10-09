@@ -19,3 +19,4 @@
 <p>Package <a href="https://CRAN.R-project.org/package=readxl"><strong>readxl</strong></a> can read both Excel 97–2003 and Excel 2007/10 spreadsheets, using an included C library.</p>
 <hr />
 <p><a href="" id="References"></a> <a href="" id="References-1"></a></p>
+

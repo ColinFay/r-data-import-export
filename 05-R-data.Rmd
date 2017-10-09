@@ -22,11 +22,11 @@
 </div>
 <p>Column names can be given explicitly via the <code class="calibre2">col.names</code>; explicit names override the header line (if present).</p></li>
 <li><p><strong>Separator</strong></p>
-<p>Normally looking at the file will determine the field separator to be used, but with white-space separated files there may be a choice between the default <code class="calibre2">sep = &quot;&quot;</code> which uses any white space (spaces, tabs or newlines) as a separator, <code class="calibre2">sep = &quot; &quot;</code> and <code class="calibre2">sep = &quot;\t&quot;</code>. Note that the choice of separator affects the input of quoted strings.</p>
-<p>If you have a tab-delimited file containing empty fields be sure to use <code class="calibre2">sep = &quot;\t&quot;</code>.</p></li>
+<p>Normally looking at the file will determine the field separator to be used, but with white-space separated files there may be a choice between the default <code class="calibre2">sep = &quot;&quot;</code> which uses any white space (spaces, tabs or newlines) as a separator, <code class="calibre2">sep = &quot; &quot;</code> and <code class="calibre2">sep = &quot;&#92;t&quot;</code>. Note that the choice of separator affects the input of quoted strings.</p>
+<p>If you have a tab-delimited file containing empty fields be sure to use <code class="calibre2">sep = &quot;&#92;t&quot;</code>.</p></li>
 <li><p><strong>Quoting</strong> <a href="" id="index-Quoting-strings-1"></a></p>
-<p>By default character strings can be quoted by either ‘&quot;’ or ‘'’, and in each case all the characters up to a matching quote are taken as part of the character string. The set of valid quoting characters (which might be none) is controlled by the <code class="calibre2">quote</code> argument. For <code class="calibre2">sep = &quot;\n&quot;</code> the default is changed to <code class="calibre2">quote = &quot;&quot;</code>.</p>
-<p>If no separator character is specified, quotes can be escaped within quoted strings by immediately preceding them by ‘\’, C-style.</p>
+<p>By default character strings can be quoted by either ‘&quot;’ or ‘'’, and in each case all the characters up to a matching quote are taken as part of the character string. The set of valid quoting characters (which might be none) is controlled by the <code class="calibre2">quote</code> argument. For <code class="calibre2">sep = &quot;&#92;n&quot;</code> the default is changed to <code class="calibre2">quote = &quot;&quot;</code>.</p>
+<p>If no separator character is specified, quotes can be escaped within quoted strings by immediately preceding them by ‘&#92;’, C-style.</p>
 <p>If a separator character is specified, quotes can be escaped within quoted strings by doubling them as is conventional in spreadsheets. For example</p>
 <div class="example">
 <pre class="example1"><code>&#39;One string isn&#39;&#39;t two&#39;,&quot;one more&quot;</code></pre>
@@ -55,7 +55,7 @@
 <p>If it is known that there will be no comments in the data file, it is safer (and may be faster) to use <code class="calibre2">comment.char = &quot;&quot;</code>.</p></li>
 <li><p><strong>Escapes</strong></p>
 <p>Many OSes have conventions for using backslash as an escape character in text files, but Windows does not (and uses backslash in path names). It is optional in R whether such conventions are applied to data files.</p>
-<p>Both <code class="calibre2">read.table</code> and <code class="calibre2">scan</code> have a logical argument <code class="calibre2">allowEscapes</code>. This is false by default, and backslashes are then only interpreted as (under circumstances described above) escaping quotes. If this set to be true, C-style escapes are interpreted, namely the control characters <code class="calibre2">\a, \b, \f, \n, \r, \t, \v</code> and octal and hexadecimal representations like <code class="calibre2">\040</code> and <code class="calibre2">\0x2A</code>. Any other escaped character is treated as itself, including backslash. Note that Unicode escapes such as <code class="calibre2">\uxxxx</code> are never interpreted.</p></li>
+<p>Both <code class="calibre2">read.table</code> and <code class="calibre2">scan</code> have a logical argument <code class="calibre2">allowEscapes</code>. This is false by default, and backslashes are then only interpreted as (under circumstances described above) escaping quotes. If this set to be true, C-style escapes are interpreted, namely the control characters <code class="calibre2">&#92;a, &#92;b, &#92;f, &#92;n, &#92;r, &#92;t, &#92;v</code> and octal and hexadecimal representations like <code class="calibre2">&#92;040</code> and <code class="calibre2">&#92;0x2A</code>. Any other escaped character is treated as itself, including backslash. Note that Unicode escapes such as <code class="calibre2">&#92;uxxxx</code> are never interpreted.</p></li>
 <li><p><strong>Encoding</strong></p>
 <p>This can be specified by the <code class="calibre2">fileEncoding</code> argument, for example</p>
 <div class="example">
@@ -115,7 +115,7 @@ fileEncoding = &quot;UTF-8&quot;</code></pre>
 <p>Both <code class="calibre2">read.table</code> and <code class="calibre2">read.fwf</code> use <code class="calibre2">scan</code> to read the file, and then process the results of <code class="calibre2">scan</code>. They are very convenient, but sometimes it is better to use <code class="calibre2">scan</code> directly.</p>
 <p>Function <code class="calibre2">scan</code> has many arguments, most of which we have already covered under <code class="calibre2">read.table</code>. The most crucial argument is <code class="calibre2">what</code>, which specifies a list of modes of variables to be read from the file. If the list is named, the names are used for the components of the returned list. Modes can be numeric, character or complex, and are usually specified by an example, e.g. <code class="calibre2">0</code>, <code class="calibre2">&quot;&quot;</code> or <code class="calibre2">0i</code>. For example</p>
 <div class="example">
-<pre class="example1"><code>cat(&quot;2 3 5 7&quot;, &quot;11 13 17 19&quot;, file=&quot;ex.dat&quot;, sep=&quot;\n&quot;)
+<pre class="example1"><code>cat(&quot;2 3 5 7&quot;, &quot;11 13 17 19&quot;, file=&quot;ex.dat&quot;, sep=&quot;&#92;n&quot;)
 scan(file=&quot;ex.dat&quot;, what=list(x=0, y=&quot;&quot;, z=0), flush=TRUE)</code></pre>
 </div>
 <p>returns a list with three components and discards the fourth column in the file.</p>
@@ -234,3 +234,4 @@ Rejected Male        313 207 205 279 138 351
 <div id="calibre_pb_8" class="calibre11">
 
 </div>
+
