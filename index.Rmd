@@ -1,6 +1,6 @@
 --- 
 title: "R Data Import/Export"
-author: "R Development Core Team"
+author: "R Core Team"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
